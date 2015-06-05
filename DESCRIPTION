@@ -1,0 +1,11 @@
+Package: GammaFDR
+Type: Package
+Title: Estimate empirical null distribution and false discovery rate of
+        Gamma statistics
+Version: 1.0
+Date: 2015-04-10
+Author: Xing Ren	
+Maintainer: <xingren@buffalo.edu>
+Description: 
+License:
+Packaged: 2015-06-05 02:26:37 UTC; ray
