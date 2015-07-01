@@ -32,8 +32,10 @@ GammaFDR = function(s, method = c('MLE', 'MM', 'CF', 'CF.smooth'),
   fdr = sapply(s, function(x) p0*(1-pgamma(x,k0,scale=theta0))/(1-sum(s<x)/length(s)))
   s.cutoff = min(s[fdr<fdr.cutoff])  
   if(plot){
-    hist(s,breaks)
-    curve(p0*dgamma(x,k0,1/theta0),add==T,lty=2)
+    xrange = quantile(s,0.99)
+    xbreaks = seq(0,xrange,length = breaks)
+    hist(s[s<=xrange],xbreaks,freq=F,xlim=c(0,xrange),main=NA,xlab="test statistics")
+    curve(p0*dgamma(x,k0,1/theta0),add=T,lty=2)
   }
   
   list(k0 = k0, theta0 = theta0, p0 = p0, fdr = fdr, method = method, call = this.call)
